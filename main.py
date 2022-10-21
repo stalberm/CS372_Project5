@@ -32,7 +32,7 @@ def zeroed_tcp_header(tcp_file):
 	    tcp_data = fp.read()
 	    tcp_zero_cksum = tcp_data[:16] + b'\x00\x00' + tcp_data[18:]
 
-    if len(tcp_zero_cksum) % 2 == 0:
+    if len(tcp_zero_cksum) % 2 == 1:
         tcp_zero_cksum += b'\x00'
     return tcp_zero_cksum
 
